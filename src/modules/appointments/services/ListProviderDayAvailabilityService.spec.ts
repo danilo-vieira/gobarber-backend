@@ -29,14 +29,14 @@ describe('ListProviderDayAvailability', () => {
       return new Date(2020, 4, 20, 11).getTime();
     });
 
-    const appointments = await listProviderDayAvailability.execute({
+    const availability = await listProviderDayAvailability.execute({
       provider_id: 'provider.id',
       day: 20,
       month: 5,
       year: 2020,
     });
 
-    expect(appointments).toEqual(
+    expect(availability).toEqual(
       expect.arrayContaining([
         { hour: 8, available: false },
         { hour: 9, available: false },

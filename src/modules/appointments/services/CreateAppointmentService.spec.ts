@@ -1,16 +1,24 @@
 import AppError from '@shared/errors/AppError';
 
+import FakeNotificationsRepository from '@modules/notifications/repositories/fakes/FakeNotificationsRepository';
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 import CreateAppointmentService from './CreateAppointmentService';
 
+let fakeNotificationsRepository: FakeNotificationsRepository;
+let fakeCacheProvider: FakeCacheProvider;
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
 let createAppointment: CreateAppointmentService;
 
 describe('CreateAppointment', () => {
   beforeEach(() => {
+    fakeNotificationsRepository = new FakeNotificationsRepository();
+    fakeCacheProvider = new FakeCacheProvider();
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
     createAppointment = new CreateAppointmentService(
       fakeAppointmentsRepository,
+      fakeNotificationsRepository,
+      fakeCacheProvider,
     );
   });
 
@@ -34,7 +42,7 @@ describe('CreateAppointment', () => {
       return new Date(2020, 4, 10, 12).getTime();
     });
 
-    const appointmentDate = new Date(2020, 4, 13, 12);
+    const appointmentDate = new Date(2020, 5, 11, 12);
 
     await createAppointment.execute({
       date: appointmentDate,
