@@ -8,9 +8,9 @@ export default class UsersController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { name, email, password } = request.body;
 
-    const createAppointmentService = container.resolve(CreateUserService);
+    const createUserService = container.resolve(CreateUserService);
 
-    const user = await createAppointmentService.execute({
+    const user = await createUserService.execute({
       name,
       email,
       password,
