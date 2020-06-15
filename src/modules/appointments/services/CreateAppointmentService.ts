@@ -50,6 +50,7 @@ class CreateAppointmentService {
 
     const findAppointmentInSameDate = await this.appointmentsRepository.findByDate(
       appointmentDate,
+      provider_id,
     );
 
     if (findAppointmentInSameDate) {
@@ -59,7 +60,7 @@ class CreateAppointmentService {
     const appointment = await this.appointmentsRepository.create({
       provider_id,
       user_id,
-      date,
+      date: appointmentDate,
     });
 
     const dateFormatted = format(appointmentDate, "dd/MM/yyyy 'às' HH:mm'h'");

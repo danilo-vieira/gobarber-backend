@@ -13,7 +13,7 @@ interface ITokenPayload {
 
 export default function ensureAuthenticated(
   request: Request,
-  response: Response,
+  _: Response,
   next: NextFunction,
 ): void {
   const authHeader = request.headers.authorization;
