@@ -18,5 +18,6 @@
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["./prettier.config.js"]
+  "include": ["./src", "./tmp"],
+  "exclude": ["prettier.config.js"]
 }
