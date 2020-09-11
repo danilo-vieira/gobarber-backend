@@ -45,7 +45,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/app/backend-gobarber
+            cd ~/app/gobarber-backend
             yarn
             ./node_modules/.bin/typeorm migration:run
             pm2 restart gobarber-api
