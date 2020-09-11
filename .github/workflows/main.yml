@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
-          source: "dist"
+          source: "./"
           target: "test"
 
       # Substituir antiga pasta dist pela nova
