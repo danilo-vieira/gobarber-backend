@@ -34,7 +34,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           source: "./"
-          target: "test"
+          target: "~/app/gobarber-backend"
 
       # Substituir antiga pasta dist pela nova
       # Executar Yarn na DigitalOcean
